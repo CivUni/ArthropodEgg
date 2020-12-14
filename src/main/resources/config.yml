@@ -1,7 +1,18 @@
 # default config.yml
+# can baby animals drop eggs
+babyDrop: false
 # eggArthropodPercentage is out of 1.0
 eggArthropodPercentage: 0.03
 eggLootingPercentage: 0.02
 eggEntityIDList: [65, 90, 91, 92, 93, 94, 95, 96, 98, 101, 120]
 eggDebug: false
 eggRemoveDrops: true
+
+#set this to true for all mobs to drop eggs
+ignoreIDList: false
+
+#mob head spawning. percentage is out of 1.0
+mobSmitePercentage: 0.03
+mobLootingPercentage: 0.02
+mobDebug: false
+mobRemoveDrops: true

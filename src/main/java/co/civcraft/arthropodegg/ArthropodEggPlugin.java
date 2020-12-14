@@ -28,7 +28,8 @@ public class ArthropodEggPlugin extends JavaPlugin {
 
 		this.saveDefaultConfig();
 
-		log().info("ArthropodEggPlugin has been enabled.");
+		log().info("[AE] ArthropodEggPlugin has been enabled.");
+		log().info("[AE] Forked by Kylo#1580");
 		getServer().getPluginManager().registerEvents(new ArthropodEggEntityListener(this), this);
 	}
 
