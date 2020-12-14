@@ -19,17 +19,17 @@
 
   <dependencies>
     <dependency>
-      <groupId>org.spigotmc</groupId>
-      <artifactId>spigot</artifactId>
-      <version>1.10.2-R0.1-SNAPSHOT</version>
+      <groupId>com.destroystokyo.paper</groupId>
+      <artifactId>paper-api</artifactId>
+      <version>1.12.2-R0.1-SNAPSHOT</version>
       <scope>provided</scope>
     </dependency>
   </dependencies>
 
   <repositories>
     <repository>
-      <id>spigot-repo</id>
-      <url>https://hub.spigotmc.org/nexus/content/groups/public/</url>
+      <id>destroystokyo-repo</id>
+      <url>https://repo.destroystokyo.com/repository/maven-public/</url>
     </repository>
   </repositories>
 
@@ -47,14 +47,4 @@
       </resource>
     </resources>
   </build>
-
-  <reporting>
-    <plugins>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>findbugs-maven-plugin</artifactId>
-        <version>3.0.4</version>
-      </plugin>
-    </plugins>
-  </reporting>
 </project>
