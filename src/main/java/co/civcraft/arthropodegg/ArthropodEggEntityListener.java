@@ -1,23 +1,18 @@
 package co.civcraft.arthropodegg;
 
-import static co.civcraft.arthropodegg.ArthropodEggPlugin.log;
 
 import java.util.Map;
 
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Ageable;
-import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 import org.bukkit.inventory.meta.SpawnEggMeta;
-import org.bukkit.material.SpawnEgg;
 
 /**
  * @author Randy
@@ -137,6 +132,15 @@ public class ArthropodEggEntityListener implements Listener {
 				}
 				boolean animalOnList = true;
 				switch(event.getEntityType()) {
+					case ZOMBIE:
+						if (Math.random() > 0.5) {
+							// zombie head
+							itemstackHead(targetPlayer, 2);
+						} else {
+							// player head
+							itemstackHead(targetPlayer, 3);
+						}
+						return;
 					case CHICKEN:
 						skullMeta.setOwner("MHF_Chicken");
 						skullMeta.setDisplayName("Chicken Head");
@@ -186,13 +190,11 @@ public class ArthropodEggEntityListener implements Listener {
 						skullMeta.setDisplayName("Squid Head");
 						break;
 					case CREEPER:
-						skullMeta.setOwner("MHF_Creeper");
-						skullMeta.setDisplayName("Creeper Head");
+						itemstackHead(targetPlayer, 4);
 						break;
 					case SKELETON:
-						skullMeta.setOwner("MHF_Skeleton");
-						skullMeta.setDisplayName("Skeleton Head");
-						break;
+						itemstackHead(targetPlayer, 0);
+						return;
 					default:
 						animalOnList = false;
 						break;
@@ -212,5 +214,9 @@ public class ArthropodEggEntityListener implements Listener {
 				}
 			}
 		}
+	}
+
+	private void itemstackHead(Player player, int i) {
+		player.getInventory().addItem(new ItemStack(Material.SKULL_ITEM, 1, (short) i));
 	}
 }
