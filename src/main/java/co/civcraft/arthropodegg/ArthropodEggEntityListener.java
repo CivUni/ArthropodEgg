@@ -135,10 +135,10 @@ public class ArthropodEggEntityListener implements Listener {
 					case ZOMBIE:
 						if (Math.random() > 0.5) {
 							// zombie head
-							itemstackHead(targetPlayer, 2);
+							itemstackHead(event, 2);
 						} else {
 							// player head
-							itemstackHead(targetPlayer, 3);
+							itemstackHead(event, 3);
 						}
 						return;
 					case CHICKEN:
@@ -190,10 +190,10 @@ public class ArthropodEggEntityListener implements Listener {
 						skullMeta.setDisplayName("Squid Head");
 						break;
 					case CREEPER:
-						itemstackHead(targetPlayer, 4);
+						itemstackHead(event, 4);
 						return;
 					case SKELETON:
-						itemstackHead(targetPlayer, 0);
+						itemstackHead(event, 0);
 						return;
 					default:
 						animalOnList = false;
@@ -216,7 +216,7 @@ public class ArthropodEggEntityListener implements Listener {
 		}
 	}
 
-	private void itemstackHead(Player player, int i) {
-		player.getInventory().addItem(new ItemStack(Material.SKULL_ITEM, 1, (short) i));
+	private void itemstackHead(EntityDeathEvent event, int i) {
+		event.getDrops().add(new ItemStack(Material.SKULL_ITEM, 1, (short) i));
 	}
 }
