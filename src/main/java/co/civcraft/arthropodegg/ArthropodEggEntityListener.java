@@ -191,7 +191,7 @@ public class ArthropodEggEntityListener implements Listener {
 						break;
 					case CREEPER:
 						itemstackHead(targetPlayer, 4);
-						break;
+						return;
 					case SKELETON:
 						itemstackHead(targetPlayer, 0);
 						return;
